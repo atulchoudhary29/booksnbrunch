@@ -96,10 +96,20 @@ exports.getMe = asyncHandler(async (req, res, next) => {
     // get current loggedin user data from the database using token from the cookie
     const user = await User.findById(req.user.id);
 
-    res.status(200).json({
-        success: true,
-        data: user
-    });
+    const error = false;
+    if (error) {
+        res.status(400).json({
+            success: false,
+            error: "true"
+        });
+    } else {
+        res.status(201).json({
+            success: true,
+            error: error,
+            data: user
+        });
+    
+    }
     
 });
 

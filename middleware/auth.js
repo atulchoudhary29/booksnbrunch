@@ -35,7 +35,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
 exports.authorize = asyncHandler(async (req, res, next) => {
 
     console.log(req.user.role);
-    if (req.user.role !== 'admin') {
+    if (req.user.role !== 'vendor') {
         return next(new ErrorResponse(`User has unauthorised access`, 403));
     }
     next();
