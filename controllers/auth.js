@@ -30,7 +30,7 @@ exports.register = asyncHandler(async (req, res, next) => {
 
     const error = false;
     if (error) {
-        res.status(400).json({
+        res.status(200).json({
             success: false,
             error: "true"
         });
